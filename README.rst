@@ -25,6 +25,10 @@ Components of InfeRes
  - Python module for pre-processing of satellite images (**PREPROCESSING.py**)
  - Python module to estimate reservoir's area and storage time-series (**WSA.py**)
 
+Folder structure
+---------------------
+
+Download **InfeRes package** from GitHub (link) and unzip it inside any directory. For instance, our InfeRes path is "D:/InfeRes_v1.0/". Create another folder with name "Reservoirs" (path "D:/Reservoirs/"), where your satellite data will be downloaded.
 
 Dependencies
 ----------------
@@ -61,7 +65,13 @@ Usage Instructions
 
 1. **DataDownload_GEE.py**
 
-egregregre
+ Inputs data (variable name):
+ 
+ - Name of the reservoir (res_name) = 'Salto'
+ - Year of commission (res_built_year) = 1979
+ - Bounding box (boundary) = [-58.204045, -30.379470, -57.417353, -31.371091]. Where, (-58.204045, -30.379470) and (-57.417353, -31.371091) are the (longitude, latitude) of top-left and bottom-right points of the bounding box.
+
+``DataDownload_GEE.py`` is the first step towards running InfeRes. ``DataDownload_GEE.py`` will download the satellite images and store in the Google Drive. Therefore, make sure you have sufficient space in your cloud storage (Google Drive in this case). Please also note that the downloading will take time to finish, which depends on the size of satellite image, downloading speed, and the number of images ordered. Therefore, one should first run ``DataDownload_GEE.py`` standalone, and make sure that all the orders are successfullty downloaded before running the other modules of InfeRes.     
 
 
 
