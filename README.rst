@@ -75,14 +75,14 @@ Usage Instructions
 
 The data will be downloaded inside *D:/My Drive/Reservoirs/Salto/* in two different folders.
 
- - Raw satellite data (Normalized Difference Water Index or NDWI in this case) will be at *D:/My Drive/Reservoirs/Salto/Salto_RawData*.
- - Supplementry data (DEM, Water frequency, Maximum reservoir extent in this case) will be at *D:/My Drive/Reservoirs/Salto/Salto_Supporting*.
+ - Raw satellite data (Normalized Difference Water Index or NDWI in this case) will be at *D:/My Drive/Reservoirs/Salto/Salto_RawData/*.
+ - Supplementry data (DEM, Water frequency, Maximum reservoir extent in this case) will be at *D:/My Drive/Reservoirs/Salto/Salto_Supporting/*.
 
 2. **DataDownload_GEE_GoogleColab.py**
 
-**DataDownload_GEE_GoogleColab.py** is an alternative of **DataDownload_GEE.py**, which runs of web browser-based python environment such as Google Colab. It also takes the same set of inputs (i.e. Name of the reservoir, Year of commission, and Bounding box). However, in this case the data will be downloaded in next in your Google Drive, so the downloading path will be *D:/My Drive/Salto_RawData* and *D:/My Drive/Salto_Supporting* for raw satellite data and supplementry data, respectively.
+**DataDownload_GEE_GoogleColab.py** is an alternative of **DataDownload_GEE.py**, which runs of web browser-based python environment such as Google Colab. It also takes the same set of inputs (i.e. Name of the reservoir, Year of commission, and Bounding box). However, in this case the data will be downloaded in next in your Google Drive, so the downloading path will be *D:/My Drive/Salto_RawData/* and *D:/My Drive/Salto_Supporting/* for raw satellite data and supplementry data, respectively.
 
-Please note that you need to maintain the folder structure as *D:/My Drive/Reservoirs/Salto/Salto_RawData* and *D:/My Drive/Reservoirs/Salto/Salto_Supporting* before running the InfeRes modules. Therefore, you need to move the data to the correct folder arrangement once the downloading is completed.  
+Please note that you need to maintain the folder structure as *D:/My Drive/Reservoirs/Salto/Salto_RawData/* and *D:/My Drive/Reservoirs/Salto/Salto_Supporting/* before running the InfeRes modules. Therefore, you need to move the data to the correct folder arrangement once the downloading is completed.  
 
 
 
