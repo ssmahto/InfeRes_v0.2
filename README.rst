@@ -26,15 +26,41 @@ Components of InfeRes
  - Python module to estimate reservoir's area and storage time-series (**WSA.py**)
 
 
-Content
+Dependencies
 ----------------
 
-- Dependencies
+ - Python version-3.8 and above (we used Anaconda3, which is an open-source distribution of the Python)
+ - Python standard library (os, numpy, pandas, matplotlib, csv)
+ - Python advanced library (ee, osgeo, rasterio, sklearn.cluster, scipy.ndimage, skimage.morphology)
 
-f3f3gf34g
+Installation
+---------------
 
-- Insatllation
-- Usage
+- Install the latest version of Anaconda (download `here <https://docs.anaconda.com/free/anaconda/install/windows/>`_).
+
+   *To create the conda environment with python=3.10, for instance, use:*
+   
+    (base) C:/User/UserName/conda create -n environment_name python=3.10
+
+   *To activate the conda environment, use:*
+   
+    (base) C:/User/UserName/conda activate environment_name
+   
+- Install all libraries within the built environment (following steps are recommended).
+
+ i) conda install -c conda-forge **rasterio**
+ ii) conda install -c conda-forge **gdal=3.9.0** (assuming 3.9.0 is the latest vesrion of GDAL)
+ iii) conda install -c conda-forge **spyder**
+ iv) conda install -c conda-forge **earthengine-api**
+ v) Similarly install all the other libraries
+
+- Open spyder and load all the InfeRes modules (i.e **DataDownload_GEE.py, main.py, CURVE.py, PREPROCESSING.py, and WSA.py**)
+
+Usage Instructions
+---------------------
+
+egregregre
+
 
 
 
