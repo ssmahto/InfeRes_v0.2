@@ -11,22 +11,28 @@ and other popular python packages. ``InfeRes`` is developed with a novel algorit
 ``InfeRes`` can be applied to monitor water surface area in any reservoir or waterbody; whereas, storage-volume can be obtained for the large reservoirs (storage >= 0.1m:sup:`3`) listed in the `GRanD <https://www.globaldamwatch.org/directory/>`_ databse.
 
 Components of InfeRes
----------------------------
+---------------------
 
 1. Data download
-  - Using standalone python environment (**DataDownload_GEE.py**)
-  - Using web brwoser-based python environment (**DataDownload_GEE_GoogleColab.py**)
+
+ - Using standalone python environment (**DataDownload_GEE.py**)
+ - Using web browser-based python environment (**DataDownload_GEE_GoogleColab.py**)
 
 2. Data processing
-  - Main python module (**main.py**)
-  - Python module to create reservoir's Area-Elevation-Storage curves (**CURVE.py**)
-  - Python module for pre-processing of satellite images (**PREPROCESSING.py**)
-  - Python module to estimate reservoir's area and storage time-series (**WSA.py**)
+
+ - Main python module (**main.py**)
+ - Python module to create reservoir's Area-Elevation-Storage curves (**CURVE.py**)
+ - Python module for pre-processing of satellite images (**PREPROCESSING.py**)
+ - Python module to estimate reservoir's area and storage time-series (**WSA.py**)
+
 
 Content
 ----------------
 
 - Dependencies
+
+f3f3gf34g
+
 - Insatllation
 - Usage
 
