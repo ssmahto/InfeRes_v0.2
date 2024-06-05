@@ -16,10 +16,9 @@ from datetime import datetime
 ee.Initialize()
 import pandas as pd
 
-df = pd.read_csv('inputs_GEE.csv', parse_dates=True)
-res_name = df.Name[0] 
-res_built_year = df.Year[0]
-boundary = [float(value) for value in df.Boundary[0].split(',')] 
+res_name = 'AyunHa' 
+res_built_year = 1997
+boundary = [108.155, 13.700, 108.300, 13.575] 
 boundary = ee.Geometry.Rectangle(boundary)                                              
 print('Name of the reservoir: ' + res_name)                                              
                                                                                                                 
