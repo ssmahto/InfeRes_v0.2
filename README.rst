@@ -28,7 +28,7 @@ Components of InfeRes
 Folder structure
 ---------------------
 
-Download **InfeRes package** from GitHub (link) and unzip it inside any directory. For instance, our InfeRes path is "D:/InfeRes_v1.0/". Create another folder with name "Reservoirs" (path "D:/Reservoirs/"), where your satellite data will be downloaded.
+Download **InfeRes package** from GitHub (link) and unzip it inside any directory. For instance, our InfeRes path is *D:/My Drive/InfeRes_v1.0/*. Create another folder with name 'Reservoirs' (path *D:/My Drive/Reservoirs/*), where your satellite data will be downloaded.
 
 Dependencies
 ----------------
@@ -71,7 +71,18 @@ Usage Instructions
  - Year of commission (res_built_year) = 1979
  - Bounding box (boundary) = [-58.204045, -30.379470, -57.417353, -31.371091]. Where, (-58.204045, -30.379470) and (-57.417353, -31.371091) are the (longitude, latitude) of top-left and bottom-right points of the bounding box.
 
-``DataDownload_GEE.py`` is the first step towards running InfeRes. ``DataDownload_GEE.py`` will download the satellite images and store in the Google Drive. Therefore, make sure you have sufficient space in your cloud storage (Google Drive in this case). Please also note that the downloading will take time to finish, which depends on the size of satellite image, downloading speed, and the number of images ordered. Therefore, one should first run ``DataDownload_GEE.py`` standalone, and make sure that all the orders are successfullty downloaded before running the other modules of InfeRes.     
+``DataDownload_GEE.py`` is the first step towards running **InfeRes**. ``DataDownload_GEE.py`` will download the satellite images and store them in the Google Drive. Therefore, make sure you have sufficient space in your cloud storage (Google Drive in this case) before running ``DataDownload_GEE.py``. Please also note that the downloading will take time to finish, which depends on the size of satellite image, downloading speed, and the number of images ordered. Therefore, one should first run ``DataDownload_GEE.py`` standalone, and wait until all the orders are successfullty downloaded before running the other modules of InfeRes.   
+
+The data will be downloaded inside *D:/My Drive/Reservoirs/Salto/* in two different folders.
+
+ - Raw satellite data (Normalized Difference Water Index or NDWI in this case) will be at *D:/My Drive/Reservoirs/Salto/Salto_RawData*.
+ - Supplementry data (DEM, Water frequency, Maximum reservoir extent in this case) will be at *D:/My Drive/Reservoirs/Salto/Salto_Supporting*.
+
+2. **DataDownload_GEE_GoogleColab.py**
+
+**DataDownload_GEE_GoogleColab.py** is an alternative of **DataDownload_GEE.py**, which runs of web browser-based python environment such as Google Colab. It also takes the same set of inputs (i.e. Name of the reservoir, Year of commission, and Bounding box). However, in this case the data will be downloaded in next in your Google Drive, so the downloading path will be *D:/My Drive/Salto_RawData* and *D:/My Drive/Salto_Supporting* for raw satellite data and supplementry data, respectively.
+
+Please note that you need to maintain the folder structure as *D:/My Drive/Reservoirs/Salto/Salto_RawData* and *D:/My Drive/Reservoirs/Salto/Salto_Supporting* before running the InfeRes modules. Therefore, you need to move the data to the correct folder arrangement once the downloading is completed.  
 
 
 
