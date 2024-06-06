@@ -65,7 +65,7 @@ Usage Instructions
 
 1. **DataDownload_GEE.py**
 
-  Inputs data (variable name):
+  Inputs required (variable name):
  
   - Name of the reservoir (res_name) = 'Salto'
   - Year of commission (res_built_year) = 1979
@@ -80,9 +80,35 @@ Usage Instructions
 
 2. **DataDownload_GEE_GoogleColab.py**
 
- **DataDownload_GEE_GoogleColab.py** is an alternative of **DataDownload_GEE.py**, which runs of web browser-based python environment such as Google Colab. It also takes the same set of inputs (i.e. Name of the reservoir, Year of commission, and Bounding box). However, in this case the data will be downloaded in next in your Google Drive, so the downloading path will be *D:/My Drive/Salto_RawData/* and *D:/My Drive/Salto_Supporting/* for raw satellite data and supplementry data, respectively.
+ ``DataDownload_GEE_GoogleColab.py`` is an alternative of ``DataDownload_GEE.py``, which runs of web browser-based python environment such as Google Colab. It also takes the same set of inputs (i.e. Name of the reservoir, Year of commission, and Bounding box). However, in this case the data will be downloaded in next in your Google Drive, so the downloading path will be *D:/My Drive/Salto_RawData/* and *D:/My Drive/Salto_Supporting/* for raw satellite data and supplementry data, respectively.
  
  Please note that you need to maintain the folder structure as *D:/My Drive/Reservoirs/Salto/Salto_RawData/* and *D:/My Drive/Reservoirs/Salto/Salto_Supporting/* before running the InfeRes modules. Therefore, you need to move the data to the correct folder arrangement once the downloading is completed.  
+
+3. **main.py**
+
+ ``main.py`` is the main module of InfeRes that calls other modules in a sequential order (``PREPROCESSING.py`` -> ``CURVE.py`` -> ``WSA.py``) to get the desired outputs (i.e. reservoir's area, level, and storage in this case).
+
+4. **PREPROCESSING.py**
+
+ ``PREPROCESSING.py`` is designed to perform the following tasks:
+
+  - Creating the reservoir isolation raster (binary map of reservoir maximum extent).
+  - Creating reservoir isolation for DEM (masked DEM)
+  - Reprojecting and resizing (or clipping) the satellite images including DEM, water extent, and frequency rasters.
+  - Creating a collection of relatively good quality (less cloud cover) satellite images.
+
+ Inputs required (variable name):
+ 
+  - Name of the reservoir (res_name) = 'Salto'
+  - Year of commission (res_built_year) = 1979
+  - Maximum water level in meter (max_wl) = 43
+  - A point coordinates on the reservoir (point) = [-57.913791, -30.943991]
+  - Reservoir's bounding box coordinates (boundary) = [-58.204045, -30.379470, -57.417353, -31.371091]
+
+
+
+
+
 
 
 
