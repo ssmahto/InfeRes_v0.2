@@ -84,13 +84,9 @@ Usage Instructions
  
  Please note that you need to maintain the folder structure as *D:/My Drive/Reservoirs/Salto/Salto_RawData/* and *D:/My Drive/Reservoirs/Salto/Salto_Supporting/* before running the InfeRes modules. Therefore, you need to move the data to the correct folder arrangement once the downloading is completed.  
 
-3. **main.py**
+3. **PREPROCESSING.py**
 
- ``main.py`` is the main module of InfeRes that calls other modules in a sequential order (``PREPROCESSING.py`` -> ``CURVE.py`` -> ``WSA.py``) to get the desired outputs (i.e. reservoir's area, level, and storage in this case).
-
-4. **PREPROCESSING.py**
-
- ``PREPROCESSING.py`` is designed to perform the following tasks:
+ ``PREPROCESSING.py`` performs the following tasks:
 
   - Creating the reservoir isolation raster (binary map of reservoir maximum extent).
   - Creating reservoir isolation for DEM (masked DEM)
@@ -104,6 +100,65 @@ Usage Instructions
   - Maximum water level in meter (max_wl) = 43
   - A point coordinates on the reservoir (point) = [-57.913791, -30.943991]
   - Reservoir's bounding box coordinates (boundary) = [-58.204045, -30.379470, -57.417353, -31.371091]
+
+4. **CURVE.py**
+
+ ``CURVE.py`` creates the Area-Elevation-Storage relationship for a reservoir.
+ 
+ Inputs required (variable name):
+
+  a. If reservoir has built before the acquisition of DEM (i.e. year 2000, as we are using SRTM DEM):
+ 
+   - Name of the reservoir (res_name) = 'Salto'
+   - Identification number of the reservoir in the GRanD v1.3 database (grandID) = 230
+   - Maximum water level in meter (max_wl) = 43
+   - A point coordinates on the reservoir (point) = [-57.913791, -30.943991]
+   - Reservoir's bounding box coordinates (boundary) = [-58.204045, -30.379470, -57.417353, -31.371091]
+
+  b. If reservoir has built after the acquisition of DEM (i.e. year 2000, as we are using SRTM DEM):
+ 
+   - Name of the reservoir (res_name) = 'Salto'
+   - Maximum water level in meter (max_wl) = 43
+
+6. **WSA.py**
+
+ ``WSA.py`` estimates the area and storage time-seties from the pre-preocessed time satellite images, which only takes intput as the name of the reservoir.
+ 
+ Inputs required (variable name):
+ 
+  - Name of the reservoir (res_name) = 'Salto'
+
+How to Run?
+---------------------
+
+**Step 1.** Run either **DataDownload_GEE_GoogleColab.py** or **DataDownload_GEE.py** standalone, and let the data download finish (i.e. Satellite NDWI images, Maximum water extent, Water frequency, and DEM).
+
+**Step 2.** (Assuming we already have all the required datasets) Open Spyder and locate the directory to the InfeRes_v1.0, and load the modules ``main.py``, ``PREPROCESSING.py``, ``CURVE.py``, and ``WSA.py``.
+
+**Step 3.** Configure ``main.py``
+
+  - Modify the path of InfeRes directory  (i.e. **parent_directory**)
+  - Prepare the input file  (i.e. **inputs_InfeRes.csv**)
+
+    **inputs_InfeRes.csv** contains:
+ 
+    * Name of the reservoir (res_name) = 'Salto'
+    * Year of commission (res_built_year) = 1979
+    * Maximum water level in meter (max_wl) = 43
+    * GRanD ID = 230 (if GRanD ID is not available, put 0)
+    * A point coordinates on the reservoir (point) = [-57.913791, -30.943991]
+    * Reservoir's bounding box coordinates (boundary) = [-58.204045, -30.379470, -57.417353, -31.371091]
+    * Run the ``main.py``
+
+ NOTE: ``main.py`` calls other modules in a sequential order (``PREPROCESSING.py`` -> ``CURVE.py`` -> ``WSA.py``) to get the desired outputs (i.e. reservoir's area, level, and storage in this case).
+
+
+
+
+
+
+
+
 
 
 
