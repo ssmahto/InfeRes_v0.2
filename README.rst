@@ -69,7 +69,7 @@ Usage Instructions
 
   Inputs required (variable name):
  
-  - Name of the reservoir (res_name) = 'Salto'
+  - Name of the reservoir (res_name) = Salto
   - Year of commission (res_built_year) = 1979
   - Bounding box (boundary) = [-58.204045, -30.379470, -57.417353, -31.371091]. Where, (-58.204045, -30.379470) and (-57.417353, -31.371091) are the (longitude, latitude) of top-left and bottom-right points of the bounding box.
 
@@ -95,7 +95,7 @@ Usage Instructions
 
  Inputs required (variable name):
  
-  - Name of the reservoir (res_name) = 'Salto'
+  - Name of the reservoir (res_name) = Salto
   - Year of commission (res_built_year) = 1979
   - Maximum water level in meter (max_wl) = 43
   - A point coordinates on the reservoir (point) = [-57.913791, -30.943991]
@@ -109,7 +109,7 @@ Usage Instructions
 
   a. If reservoir has built before the acquisition of DEM (i.e. year 2000, as we are using SRTM DEM):
  
-   - Name of the reservoir (res_name) = 'Salto'
+   - Name of the reservoir (res_name) = Salto
    - Identification number of the reservoir in the GRanD v1.3 database (grandID) = 230
    - Maximum water level in meter (max_wl) = 43
    - A point coordinates on the reservoir (point) = [-57.913791, -30.943991]
@@ -117,7 +117,7 @@ Usage Instructions
 
   b. If reservoir has built after the acquisition of DEM (i.e. year 2000, as we are using SRTM DEM):
  
-   - Name of the reservoir (res_name) = 'Salto'
+   - Name of the reservoir (res_name) = Salto
    - Maximum water level in meter (max_wl) = 43
 
 6. **WSA.py**
@@ -126,7 +126,7 @@ Usage Instructions
  
  Inputs required (variable name):
  
-  - Name of the reservoir (res_name) = 'Salto'
+  - Name of the reservoir (res_name) = Salto
 
 How to Run?
 ---------------------
@@ -142,7 +142,7 @@ How to Run?
 
     **inputs_InfeRes.csv** contains:
  
-    * Name of the reservoir (res_name) = 'Salto'
+    * Name of the reservoir (res_name) = Salto
     * Year of commission (res_built_year) = 1979
     * Maximum water level in meter (max_wl) = 43
     * GRanD ID = 230 (if GRanD ID is not available, put 0)
