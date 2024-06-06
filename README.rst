@@ -15,15 +15,15 @@ Components of InfeRes
 
 1. Data download
 
- - Using standalone python environment (**DataDownload_GEE.py**)
- - Using web browser-based python environment (**DataDownload_GEE_GoogleColab.py**)
+ - Using standalone python environment (``DataDownload_GEE.py``)
+ - Using web browser-based python environment (``DataDownload_GEE_GoogleColab.py``)
 
 2. Data processing
 
- - Main python module (**main.py**)
- - Python module to create reservoir's Area-Elevation-Storage curves (**CURVE.py**)
- - Python module for pre-processing of satellite images (**PREPROCESSING.py**)
- - Python module to estimate reservoir's area and storage time-series (**WSA.py**)
+ - Main python module (``main.py``)
+ - Python module to create reservoir's Area-Elevation-Storage curves (``CURVE.py``)
+ - Python module for pre-processing of satellite images (``PREPROCESSING.py``)
+ - Python module to estimate reservoir's area and storage time-series (``WSA.py``)
 
 Folder structure
 ---------------------
@@ -58,7 +58,7 @@ Installation
  iv) conda install -c conda-forge **earthengine-api**
  v) Similarly install all the other libraries
 
-- Open spyder and load all the InfeRes modules (i.e **DataDownload_GEE.py, main.py, CURVE.py, PREPROCESSING.py, and WSA.py**)
+- Open spyder and load all the InfeRes modules (i.e ``DataDownload_GEE.py``, ``main.py``, ``CURVE.py``, ``PREPROCESSING.py``, and ``WSA.py``)
 
 Usage Instructions
 ---------------------
