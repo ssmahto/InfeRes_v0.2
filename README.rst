@@ -28,12 +28,12 @@ Components of InfeRes
 Folder structure
 ---------------------
 
-Download **InfeRes package** from GitHub (`link <https://github.com/ssmahto/InfeRes_v0.2/>`_) and unzip it inside any directory. For instance, our InfeRes path is *D:/My Drive/InfeRes_v0.2/*. Another folder 'Reservoirs' (path *D:/My Drive/Reservoirs/*), where your satellite data will be downloaded. We have provided the example data for AyunHa reservoir for a quick setup and testing InfeRes as a case study. 
+Download **InfeRes package** from GitHub (`link <https://github.com/Critical-Infrastructure-Systems-Lab/InfeRes/>`_) and unzip it inside any directory. For instance, after unzip InfeRes path should be *D:/My Drive/code/*. Another folder 'Reservoirs' (path *D:/My Drive/Reservoirs/*), where your satellite data will be downloaded. We have provided the example data for AyunHa reservoir for a quick setup and testing InfeRes as a case study. 
 
 **NOTE**: Please unzip all compressed folders before running InfeRes. The folder directories and their paths should be as follows after the unzip:
 
- 1. **Folder containing InfeRes modules**: *D:/My Drive/InfeRes_v0.2/*
- 2. **Folder containing reference GRanD curves**: *D:/My Drive/InfeRes_v0.2/GRAND_Curves/*
+ 1. **Folder containing InfeRes modules**: *D:/My Drive/code/*
+ 2. **Folder containing reference GRanD curves**: *D:/My Drive/code/GRAND_Curves/*
  3. **Folder containing all reservoir's data**: *D:/My Drive/Reservoirs/*
  4. **Folder containing data for (say) AyunHa reservoir**: *D:/My Drive/Reservoirs/AyunHa/*
  5. **Folder containing raw satellite images for (say) AyunHa reservoir**: *D:/My Drive/Reservoirs/AyunHa/AyunHa_RawData/*
@@ -142,7 +142,7 @@ How to Run?
 
 **Step 1.** Run either **DataDownload_GEE_GoogleColab.py** or **DataDownload_GEE.py** standalone, and let the data download finish (i.e. Satellite NDWI images, Maximum water extent, Water frequency, and DEM).
 
-**Step 2.** (Assuming you already have all the required datasets) Open Spyder and locate the directory to the InfeRes_v0.2, and load the modules ``main.py``, ``PREPROCESSING.py``, ``CURVE.py``, and ``WSA.py``.
+**Step 2.** (Assuming you already have all the required datasets) Open Spyder and locate the directory to the code, and load the modules ``main.py``, ``PREPROCESSING.py``, ``CURVE.py``, and ``WSA.py``.
 
 **Step 3.** Configure ``main.py``
 
@@ -175,20 +175,11 @@ The outputs will be saved in a folder called *'Outputs'* in the same directory w
  - Intermediate raster images
  - Intermediate figures (inside a seperate folder called *JPG_files*)
 
+Acknowledgement 
+---------------------
 
+We have acquired the reference GRAND_Curves (reservoir's reconstructed bathymetry) form `Hao et al., (2024) <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023WR035781>`_, which is available for the list of reservoirs in the Global Reservoir and Dam (GRanD) Database (`Lehner et al., 2011 <https://esajournals.onlinelibrary.wiley.com/doi/10.1890/100125>`_).  
 
+ - Hao, Z., Chen, F., Jia, X., Cai, X., Yang, C., Du, Y., & Ling, F. (2024). GRDL: A New Global Reservoir Area‐Storage‐Depth Data Set Derived Through Deep Learning‐Based Bathymetry Reconstruction. Water Resources Research, 60(1), e2023WR035781.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ - Lehner, B., C. Reidy Liermann, C. Revenga, C. Vörösmarty, B. Fekete, P. Crouzet, P. Döll, M. Endejan, K. Frenken, J. Magome, C. Nilsson, J.C. Robertson, R. Rodel, N. Sindorf, and D. Wisser. 2011. High-resolution mapping of the world’s reservoirs and dams for sustainable river-flow management. Frontiers in Ecology and the Environment 9 (9): 494-502.
