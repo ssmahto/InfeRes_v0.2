@@ -52,8 +52,8 @@ Installation
    
 - Install all libraries within the built environment (following steps are recommended).
 
- i) conda install -c conda-forge **rasterio**
- ii) conda install -c conda-forge **gdal=3.9.0** (assuming 3.9.0 is the latest vesrion of GDAL)
+ i) conda install -c conda-forge **gdal=3.9.0** (assuming 3.9.0 is the latest vesrion of GDAL)
+ ii) conda install -c conda-forge **rasterio**
  iii) conda install -c conda-forge **spyder**
  iv) conda install -c conda-forge **earthengine-api**
  v) Similarly install all the other libraries
