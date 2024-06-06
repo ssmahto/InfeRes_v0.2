@@ -152,6 +152,21 @@ How to Run?
 
  NOTE: ``main.py`` calls other modules in a sequential order (``PREPROCESSING.py`` -> ``CURVE.py`` -> ``WSA.py``) to get the desired outputs (i.e. reservoir's area, level, and storage in this case).
 
+Outputs
+---------------------
+
+The outputs will be saved in a folder called *'Outputs'* in the same directory where your input data are kept.
+
+``InfeRes`` will generate the following outputs:
+
+ - Area-Elevation-Storage relationship (**Curve.csv**)
+ - List of images used for estiamtion of storage (**Image_List.csv**)
+ - Table containing the scene-based (landsat and Sentinel) reservoir area and storage (**WSA.csv**)
+ - Updated table containing scene-based reservoir area in km:sup:`2`, water level in m, and storage in million m:sup:`3` (**WSA_updated.csv**)
+ - Intermediate raster images
+ - Intermediate figures (inside a seperate folder called *JPG_files*)
+
+
 
 
 
