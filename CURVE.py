@@ -65,7 +65,7 @@ def res_isolation(res_name, max_wl, point, boundary):
     return column, row 
 
 #============================================================== E-A relationship
-def curve_preDEM(res_name, max_wl, parent_directory, grandID, point, boundary): 
+def curve_preDEM(res_name, point, boundary, max_wl, parent_directory, grandID, grandCapacity): 
     # E-A-S Curve import from GRAND (WRR paper)
     dtdr = os.getcwd()
     os.chdir(parent_directory)
@@ -85,11 +85,12 @@ def curve_preDEM(res_name, max_wl, parent_directory, grandID, point, boundary):
     res_dem[res_dem == 0] = np.nan
     res_area = gdal_array.LoadFile('ResIso.tif').astype(np.float32)
     res_areaN = expand(res_area, 3)
+    res_areaN1 = expand(res_area, 1)
     res_dem[np.where(res_areaN==0)] = np.nan
  
     [column, row] = res_isolation(res_name, max_wl, point, boundary)      # 'res_isolation' function calling
     min_dem = int(res_dem[row, column])
-    curve_ext = max_wl+20            
+    curve_ext = max_wl+10            
     curve_temp = [["Level (m)", "Area (sq.km)", "Storage (mcm)"]]
     pre_area = 0
     tot_storage = 0 
@@ -159,22 +160,42 @@ def curve_preDEM(res_name, max_wl, parent_directory, grandID, point, boundary):
         pre_area = area   
         curve_final = np.append(curve_final, [[level, np.round(area,3), np.round(tot_storage,3)]], 
                             axis=0)   
-        
+          
+    data = curve_final[1:, :]
+    data = np.array(data, dtype=np.float32)
+    area_km2 = round(np.count_nonzero(res_areaN1 == 1)*0.0009,2)
+    wrong_storage = round(np.interp(area_km2, data[:, 1], data[:, 2]),2)
+    correct_storage = grandCapacity
+    bias = round((wrong_storage - correct_storage)/wrong_storage,2)
+    
+    if bias>0:
+        correct_storage_curve = data[:, 2] - (data[:, 2]*abs(bias))
+    if bias<=0:
+        correct_storage_curve = data[:, 2] + (data[:, 2]*abs(bias))
+    
+    data1 = np.column_stack((data[:, 0], data[:, 1], correct_storage_curve))
+    corrected_curve_final = [["Level (m)", "Area (sq.km)", "Storage (mcm)"]]
+    result = data1.astype(str)
+    corrected_curve_final = np.append(corrected_curve_final, result, axis=0)
+    data2 = corrected_curve_final[1:, :]
+    data2 = np.array(data2, dtype=np.float32)
+    wl_extra = np.max(data2[:,0])-max_wl 
+    corrected_curve_final = corrected_curve_final[:-int(round(wl_extra/2))]
+    data2 = data2[:-int(round(wl_extra/2))]
+    
     # saving output as a csv file
     with open('Curve.csv',"w", newline='') as my_csv:
         csvWriter = csv.writer(my_csv)
-        csvWriter.writerows(curve_final)
-        
+        csvWriter.writerows(corrected_curve_final)
+
     # ==================== Plot the DEM-based Level-Storage curve   
-    data = curve_final[1:, :]
-    data = np.array(data, dtype=np.float32)
-    # Create the scatter plot
     plt.figure()
-    plt.scatter(data[:, 0], data[:, 2], s=8, c='red')
-    # Set labels and title
+    plt.scatter(data[:, 0], data[:, 2], s=8, c='red', label='Before storage adjustment')
+    plt.scatter(data2[:, 0], data2[:, 2], s=8, c='blue', label='After storage adjustment')
     plt.xlabel('Level (m)')
     plt.ylabel('Storage (mcm)')
     plt.title(res_name + ' (Minimum DEM level= '+ str(round(data[0,0]))+'m)')
+    plt.legend()
     plt.savefig(res_name+'_storageVSelevation.png', dpi=600, bbox_inches='tight')
     
     return round(data[0,0]) 
@@ -231,7 +252,3 @@ def curve_postDEM(res_name, max_wl):
     return round(data[0,0])
     
     
-
-
-
-
